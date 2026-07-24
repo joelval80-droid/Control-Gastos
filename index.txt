@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Control Gastos Mensual</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>💰 Control Gastos Mensual</h1>
+
+<button id="modo">
+🌙
+</button>
+
+</header>
+
+
+
+<section class="dashboard">
+
+
+<div class="card">
+
+<h3>Total Gastado</h3>
+
+<h2 id="total">
+S/ 0
+</h2>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Presupuesto</h3>
+
+<input 
+id="presupuesto"
+type="number"
+placeholder="Ej: 2000">
+
+
+<button onclick="guardarPresupuesto()">
+Guardar
+</button>
+
+
+</div>
+
+
+
+<div class="card alerta">
+
+<h3>Estado</h3>
+
+<p id="estado">
+Sin registros
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<section class="panel">
+
+
+<h2>Registrar Consumo</h2>
+
+
+<input 
+type="date"
+id="fecha">
+
+
+<select id="categoria">
+
+
+<option>
+Mercado
+</option>
+
+<option>
+Entretenimiento
+</option>
+
+
+<option>
+Extras
+</option>
+
+
+</select>
+
+
+
+<input
+type="number"
+id="monto"
+placeholder="Monto S/">
+
+
+
+<button onclick="agregarGasto()">
+
+➕ Registrar
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="filtros">
+
+
+<input 
+id="buscar"
+placeholder="Buscar">
+
+
+<select id="filtro">
+
+
+<option value="Todos">
+Todos
+</option>
+
+
+<option>
+Mercado
+</option>
+
+
+<option>
+Entretenimiento
+</option>
+
+
+<option>
+Extras
+</option>
+
+
+</select>
+
+
+<button onclick="exportarCSV()">
+📄 Excel
+</button>
+
+
+<button onclick="exportarPDF()">
+📕 PDF
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+<section class="graficos">
+
+
+<div>
+
+<h2>
+Gastos por categoría
+</h2>
+
+<canvas id="graficoCategoria"></canvas>
+
+</div>
+
+
+
+<div>
+
+<h2>
+Evolución
+</h2>
+
+<canvas id="graficoLinea"></canvas>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Historial
+</h2>
+
+
+<table>
+
+
+<thead>
+
+<tr>
+
+<th>
+Fecha
+</th>
+
+
+<th>
+Categoría
+</th>
+
+
+<th>
+Monto
+</th>
+
+
+<th>
+Eliminar
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+<tbody id="tabla">
+
+</tbody>
+
+
+</table>
+
+
+</section>
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+
+</html>
